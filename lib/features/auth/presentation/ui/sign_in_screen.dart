@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram/core/utils/app_consts.dart';
@@ -68,14 +69,20 @@ class SignInScreen extends StatelessWidget {
                           letterSpacing: -0.15,
                         ),
                       ),
-                      const TextSpan(
+                      TextSpan(
                         text: 'Sign up.',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: blueColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                           letterSpacing: -0.15,
                         ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SignUpScreen(),
+                              )),
                       ),
                     ],
                   ),
