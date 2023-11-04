@@ -59,6 +59,7 @@ dependencies:
   #toast
   fluttertoast: ^8.2.2
   toast: ^0.3.0
+  font_awesome_flutter: ^10.6.0
 
 
 dev_dependencies:
