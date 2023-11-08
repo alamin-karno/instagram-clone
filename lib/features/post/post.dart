@@ -1,1 +1,1 @@
-export 'presentation/ui/post_screen.dart';
+export 'presentation/ui/add_post_screen.dart';

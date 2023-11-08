@@ -52,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
         children: const [
           HomeScreen(),
           SearchScreen(),
-          PostScreen(),
+          AddPostScreen(),
           ActivityScreen(),
           ProfileScreen(),
         ],
