@@ -2,7 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram/core/utils/app_consts.dart';
+import 'package:instagram/features/activity/activity.dart';
 import 'package:instagram/features/home/home.dart';
+import 'package:instagram/features/post/post.dart';
+import 'package:instagram/features/profile/profile.dart';
+import 'package:instagram/features/search/search.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -47,18 +51,10 @@ class _MainScreenState extends State<MainScreen> {
         onPageChanged: onPageChanged,
         children: const [
           HomeScreen(),
-          Center(
-            child: Text('Search'),
-          ),
-          Center(
-            child: Text('Post'),
-          ),
-          Center(
-            child: Text('Activity'),
-          ),
-          Center(
-            child: Text('Profile'),
-          ),
+          SearchScreen(),
+          PostScreen(),
+          ActivityScreen(),
+          ProfileScreen(),
         ],
       ),
       bottomNavigationBar: CupertinoTabBar(
@@ -71,7 +67,10 @@ class _MainScreenState extends State<MainScreen> {
               _currentIndex == 0
                   ? 'assets/images/home_selected.svg'
                   : 'assets/images/home.svg',
-              color: primaryColor,
+              colorFilter: const ColorFilter.mode(
+                primaryColor,
+                BlendMode.srcIn,
+              ),
             ),
           ),
           BottomNavigationBarItem(
@@ -80,7 +79,10 @@ class _MainScreenState extends State<MainScreen> {
               _currentIndex == 1
                   ? 'assets/images/search_selected.svg'
                   : 'assets/images/search.svg',
-              color: primaryColor,
+              colorFilter: const ColorFilter.mode(
+                primaryColor,
+                BlendMode.srcIn,
+              ),
             ),
           ),
           BottomNavigationBarItem(
@@ -89,7 +91,10 @@ class _MainScreenState extends State<MainScreen> {
               _currentIndex == 2
                   ? 'assets/images/add.svg'
                   : 'assets/images/add.svg',
-              color: primaryColor,
+              colorFilter: const ColorFilter.mode(
+                primaryColor,
+                BlendMode.srcIn,
+              ),
             ),
           ),
           BottomNavigationBarItem(
@@ -98,7 +103,10 @@ class _MainScreenState extends State<MainScreen> {
               _currentIndex == 3
                   ? 'assets/images/favorite_selected.svg'
                   : 'assets/images/favorite.svg',
-              color: primaryColor,
+              colorFilter: const ColorFilter.mode(
+                primaryColor,
+                BlendMode.srcIn,
+              ),
             ),
           ),
           BottomNavigationBarItem(
@@ -107,7 +115,10 @@ class _MainScreenState extends State<MainScreen> {
               _currentIndex == 4
                   ? 'assets/images/profile_selected.svg'
                   : 'assets/images/profile.svg',
-              color: primaryColor,
+              colorFilter: const ColorFilter.mode(
+                primaryColor,
+                BlendMode.srcIn,
+              ),
             ),
           ),
         ],
