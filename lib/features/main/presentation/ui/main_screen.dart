@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -111,13 +112,38 @@ class _MainScreenState extends State<MainScreen> {
           ),
           BottomNavigationBarItem(
             tooltip: 'Profile',
-            icon: SvgPicture.asset(
-              _currentIndex == 4
-                  ? 'assets/images/profile_selected.svg'
-                  : 'assets/images/profile.svg',
-              colorFilter: const ColorFilter.mode(
-                primaryColor,
-                BlendMode.srcIn,
+            icon: Container(
+              padding: const EdgeInsets.all(1),
+              decoration: BoxDecoration(
+                color: _currentIndex == 4 ? Colors.white : Colors.transparent,
+                shape: BoxShape.circle,
+              ),
+              child: Container(
+                padding: const EdgeInsets.all(1.5),
+                decoration: const BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.circle,
+                ),
+                child: CachedNetworkImage(
+                  imageUrl:
+                      'https://avatars.githubusercontent.com/alamin-karno',
+                  imageBuilder: (context, imageProvider) => Container(
+                    height: _currentIndex == 4 ? 20 : 23,
+                    width: _currentIndex == 4 ? 20 : 23,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(image: imageProvider),
+                    ),
+                  ),
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  ),
+                  errorWidget: (context, url, error) => Icon(
+                    Icons.account_circle,
+                    color: primaryColor,
+                    size: _currentIndex == 4 ? 20 : 23,
+                  ),
+                ),
               ),
             ),
           ),
