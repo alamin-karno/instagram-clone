@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram/core/utils/app_consts.dart';
 
 class MyDayItemWidget extends StatelessWidget {
   const MyDayItemWidget({Key? key}) : super(key: key);
@@ -89,26 +90,27 @@ class MyDayItemWidget extends StatelessWidget {
                   style: TextStyle(
                     color: Color(0xFFFEFEFE),
                     fontSize: 8,
-                    fontFamily: 'SF Pro Display',
                     fontWeight: FontWeight.w500,
-                    height: 0,
                     letterSpacing: 0.50,
                   ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 5),
-          const Text(
-            'Your Story',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Color(0xFFF9F9F9),
-              fontSize: 12,
-              fontFamily: 'SF Pro Text',
-              fontWeight: FontWeight.w400,
-              height: 0,
-              letterSpacing: -0.01,
+          sizeVer(5),
+          const SizedBox(
+            width: 60,
+            child: Text(
+              'Your Story',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Color(0xFFF9F9F9),
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                letterSpacing: -0.01,
+              ),
             ),
           ),
         ],
