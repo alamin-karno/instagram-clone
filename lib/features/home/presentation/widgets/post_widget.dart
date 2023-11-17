@@ -24,6 +24,7 @@ class _PostWidgetState extends State<PostWidget> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 10.0, top: 10.0),
@@ -337,7 +338,33 @@ class _PostWidgetState extends State<PostWidget> {
                 ],
               ),
             ),
-          )
+          ),
+          sizeVer(5),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Text(
+              'View all 8 comments',
+              style: TextStyle(
+                color: primaryColor.withOpacity(0.5),
+                fontSize: 13,
+                fontWeight: FontWeight.w400,
+                letterSpacing: -0.10,
+              ),
+            ),
+          ),
+          sizeVer(5),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Text(
+              '3 days ago',
+              style: TextStyle(
+                color: primaryColor.withOpacity(0.4),
+                fontSize: 11,
+                fontWeight: FontWeight.w400,
+                letterSpacing: -0.10,
+              ),
+            ),
+          ),
         ],
       ),
     );
