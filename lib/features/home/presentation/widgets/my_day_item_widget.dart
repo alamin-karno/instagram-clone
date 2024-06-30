@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:instagram/core/utils/app_consts.dart';
 
 class MyDayItemWidget extends StatelessWidget {
-  const MyDayItemWidget({Key? key}) : super(key: key);
+  const MyDayItemWidget({Key? key, this.isLive = false}) : super(key: key);
+
+  final bool isLive;
 
   @override
   Widget build(BuildContext context) {
@@ -60,41 +62,42 @@ class MyDayItemWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 4,
-                  vertical: 3,
-                ),
-                decoration: ShapeDecoration(
-                  gradient: const LinearGradient(
-                    begin: Alignment(0.81, -0.59),
-                    end: Alignment(-0.81, 0.59),
-                    colors: [
-                      Color(0xFFC90083),
-                      Color(0xFFD22463),
-                      Color(0xFFE10038)
-                    ],
+              if (isLive)
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 4,
+                    vertical: 3,
                   ),
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(
-                      width: 2,
-                      strokeAlign: BorderSide.strokeAlignCenter,
+                  decoration: ShapeDecoration(
+                    gradient: const LinearGradient(
+                      begin: Alignment(0.81, -0.59),
+                      end: Alignment(-0.81, 0.59),
+                      colors: [
+                        Color(0xFFC90083),
+                        Color(0xFFD22463),
+                        Color(0xFFE10038)
+                      ],
                     ),
-                    borderRadius: BorderRadius.circular(3),
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(
+                        width: 2,
+                        strokeAlign: BorderSide.strokeAlignCenter,
+                      ),
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                  ),
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'LIVE',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color(0xFFFEFEFE),
+                      fontSize: 8,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.50,
+                    ),
                   ),
                 ),
-                alignment: Alignment.center,
-                child: const Text(
-                  'LIVE',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Color(0xFFFEFEFE),
-                    fontSize: 8,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 0.50,
-                  ),
-                ),
-              ),
             ],
           ),
           sizeVer(5),

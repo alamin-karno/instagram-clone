@@ -26,7 +26,7 @@ class MyDayListWidget extends StatelessWidget {
         itemCount: 20,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         itemBuilder: (context, index) {
-          return const MyDayItemWidget();
+          return const MyDayItemWidget(isLive: true);
         },
       ),
     );
